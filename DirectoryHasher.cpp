@@ -1,4 +1,5 @@
 #include "DirectoryHasher.h"
+#include "Directory.h"
 
 #ifdef WITH_MEM_LEAK_TESTING
 #define _CRTDBG_MAP_ALLOC
@@ -6,10 +7,8 @@
 #include <crtdbg.h>
 #endif
 
-#include "Directory.h"
 
-
-// Benutzung: BitCoinTransfer FTP-Passwort Zielverzeichnis
+// Benutzung: Verzeichnis
 int main( int argc, const char* argv[] )
 {
 	if( argc != 2 ) return -1;
@@ -23,6 +22,7 @@ int main( int argc, const char* argv[] )
 	}
 	catch( exception )
 	{
+		ret = -2;
 	};
 
 #ifdef WITH_MEM_LEAK_TESTING

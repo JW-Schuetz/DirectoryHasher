@@ -11,7 +11,7 @@ using namespace std;
 std::string systemCall( const char* cmd )
 {
     string result;
-    array<char, 128> buffer {};
+    array<char, 512> buffer {};
     unique_ptr<FILE, decltype( &_pclose )> pipe( _popen( cmd, "r" ), _pclose );
 
     if( !pipe )

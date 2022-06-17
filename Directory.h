@@ -3,7 +3,7 @@
 #include <filesystem>
 
 
-using namespace std::filesystem;
+using namespace filesystem;
 
 class Directory
 {
