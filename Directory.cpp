@@ -35,14 +35,15 @@ int Directory::crawler( path pstartPath )
 			// provide argument for calling certutil
 			wstring wp = d.path();
 			string p = string( wp.begin(), wp.end() );
-			string cmd = string( "certutil -hashfile " );
-			string lim = string( "\"" );
-			string arg = string( cmd + lim + p + lim + " SHA512" );
 
 			// call certutil if file size not zero
 			string res = "";
 			if( file_size( p ) )
 			{
+				string cmd = string( "certutil -hashfile " );
+				string lim = string( "\"" );
+				string arg = string( cmd + lim + p + lim + " SHA512" );
+
 				res = systemCall( arg.c_str() );
 
 				// process output of certutil
